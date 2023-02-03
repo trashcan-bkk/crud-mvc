@@ -1,0 +1,36 @@
+﻿@model IEnumerable<crud_mvc.Models.Content>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Author</th>
+      <th scope="col">Created</th>
+      <th scope="col">Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                <img style="height: 50px;" src="@item.CoverImg">
+            </td>
+            <td>@item.Title</td>
+            <td>@item.Genre</td>
+            <td>@item.Author</td>
+            <td>@item.CreatedDate</td>
+            <td>@item.UpdatedDate</td>
+            <td><a asp-controller="Management" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+            <td><a asp-controller="Management" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+<div class="container">
+    <a asp-controller="Management" asp-action="Add" class="btn btn-success">Add new content</a></td>
+</div>

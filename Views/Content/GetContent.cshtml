@@ -1,0 +1,17 @@
+@model crud_mvc.Models.Content;
+
+<section>
+        <div class="row featurette">
+            <div class="col-md-6">
+                <img class="featurette-image img-fluid mx-auto" src="@Html.DisplayFor(model => model.CoverImg)" alt="100%x150" data-holder-rendered="true">
+            </div>
+            <div class="col-md-6 mt-3">
+                <h1><b>@Html.DisplayFor(model => model.Title)</b></h1>
+                <h3>By @Html.DisplayFor(model => model.Author)</h1>
+                <h3>Genre: @Html.DisplayFor(model => model.Genre)</h1><br />
+
+                <h3 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h3>
+                <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+        </div>
+</section>

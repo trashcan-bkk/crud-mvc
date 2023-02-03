@@ -1,0 +1,81 @@
+@model crud_mvc.Models.Content
+
+@{
+    ViewData["Title"] = "Edit content";
+}
+
+
+<script>$('#file').on('change', function () {
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
+</script>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1 class="h2">Edit product</h1>
+
+    <form method="post" asp-controller="Management" enctype="multipart/form-data" asp-action="Edit">
+        <table class="table">
+            <thead>
+                 <tr>
+                    <td>
+                        Img
+                    </td>
+                    <td>
+                        <input asp-for="CoverImg" type="file" name="file" class="form-control" id="file" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Title
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" asp-for="Title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Genre
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" min="0" asp-for="Genre" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Author
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" asp-for="Author" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input class="btn btn-success" type="submit" value="Save" />
+                        <a class="btn btn-danger" asp-area="" asp-controller="Management" asp-action="Index">Cancel</a>
+                        <input type="hidden" asp-for="Id" />
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </form>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+@model IEnumerable<crud_mvc.Models.Content>
+
+@{
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<div class="album py-5">
+    <div class="container">
+        <form method="GET" asp-controller="Content" asp-action="Search">
+            <div class="input-group mb-3">
+                <input type="search" class="form-control" placeholder="Title or author..." 
+                    aria-describedby="basic-addon2" value="@ViewData["SeachContent"]" name="text">
+                <div class="input-group-append">
+                    <input class="btn btn-outline-secondary" type="submit" value="Search"></input>
+                </div>
+            </div>
+        </form>
+
+        <form method="GET" asp-controller="Content" asp-action="Sorting">
+            <input class="btn btn-outline-secondary" type="submit" value="Oldest"></input>
+            <input class="btn btn-outline-secondary" type="submit" value="Latest"></input>
+            <input class="btn btn-outline-secondary" type="submit" value="Order by title ASC"></input>
+            <input class="btn btn-outline-secondary" type="submit" value="Order by title DESC"></input>
+        </form>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="@item.CoverImg">
+                        <div class="card-body">
+                            <a href="contents/@Html.DisplayFor(modelItem => item.Id)"
+                            class="card-text"><b>@item.Title</b></a>
+                            <p>@item.Author</p>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="contents/@Html.DisplayFor(modelItem => item.Id)" type="button"
+                                    class="btn btn-sm btn-outline-secondary">View</a>
+                                </div>
+                                <small class="text-muted">@item.CreatedDate</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-center">
+            @if (pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Content" asp-action="Index" asp-route-page="1">First</a>
+                </li>
+                <li>
+                    <a class="page-link" asp-controller="Content" asp-action="Index"
+                asp-route-page="@(pager.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="Content" asp-action="Index" asp-route-page="@pge"> @pge </a>
+                </li>
+            }
+
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Content" asp-action="Index"
+                asp-route-page="@(pager.CurrentPage + 1)">Next</a>
+                </li>
+                <li>
+                    <a class="page-link" asp-controller="Content" asp-action="Index"
+                asp-route-page="@(pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

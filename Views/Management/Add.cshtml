@@ -1,0 +1,75 @@
+@model crud_mvc.Models.Content
+
+@{
+    ViewData["Title"] = "Add content";
+}
+
+<script>$('#file').on('change', function () {
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
+</script>
+
+<main class="col-md-9 col-lg-10 px-md-4">
+    <h1 class="h2">Add content</h1>
+
+    <form method="post" asp-controller="Management" enctype="multipart/form-data" asp-action="Add">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>
+                        Image
+                    </td>
+                    <td>
+                        <div class="input-group mb-2">
+                            <input asp-for="CoverImg" required type="file" name="file" class="form-control" id="file" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Title
+                    </td>
+                    <td>
+                        <input class="form-control" width="50" type="text" asp-for="Title" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Author
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" asp-for="Author" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Genre
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" asp-for="Genre" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="btn btn-success" type="submit" value="Save" />
+                        <a class="btn btn-danger" asp-area="" asp-controller="Management" asp-action="Index">Cancel</a>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </form>
+</main>
+
+
+
+
+
+
+
+
+
+
+
