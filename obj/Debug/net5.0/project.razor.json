@@ -15624,6 +15624,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Content/SortingTitleAsc.cshtml",
+      "TargetPath": "Views\\Content\\SortingTitleAsc.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Content/SortingOldest.cshtml",
+      "TargetPath": "Views\\Content\\SortingOldest.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Management/Index.cshtml",
       "TargetPath": "Views\\Management\\Index.cshtml",
       "FileKind": "mvc"
@@ -15659,8 +15669,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Content/SortingTitleDesc.cshtml",
+      "TargetPath": "Views\\Content\\SortingTitleDesc.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Content/Search.cshtml",
       "TargetPath": "Views\\Content\\Search.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Content/SortingLatest.cshtml",
+      "TargetPath": "Views\\Content\\SortingLatest.cshtml",
       "FileKind": "mvc"
     },
     {

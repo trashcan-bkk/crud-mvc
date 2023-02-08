@@ -61,5 +61,89 @@ namespace crud_mvc.Controllers
             this.ViewBag.Pager = pager; 
             return View(data);
         }
+
+        [HttpGet("contents/latest")]
+        public IActionResult SortingLatest(int page = 1)
+        {
+            var contents = (from c in _db.Contents
+                           orderby c.CreatedDate descending
+                           select c).ToList();
+
+            //pagination
+            const int pageSize = 6;
+            if (page < 1) page = 1;
+
+            int count = contents.Count();
+            var pager = new Pager(count, page, pageSize);
+            int skip = (page - 1) * pageSize;
+            var data = contents.Skip(skip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager; 
+
+            return View("SortingLatest", data);
+        }
+
+        [HttpGet("contents/oldest")]
+        public IActionResult SortingOldest(int page = 1)
+        {
+             var contents = (from c in _db.Contents
+                           orderby c.CreatedDate ascending
+                           select c).ToList();
+
+             //pagination
+            const int pageSize = 6;
+            if (page < 1) page = 1;
+
+            int count = contents.Count();
+            var pager = new Pager(count, page, pageSize);
+            int skip = (page - 1) * pageSize;
+            var data = contents.Skip(skip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager; 
+
+            return View("SortingOldest", data);
+        }
+
+
+        [HttpGet("contents/title-asc")]
+        public IActionResult SortingTitleAsc(int page = 1)
+        {
+            var contents = (from c in _db.Contents
+                           orderby c.Title ascending
+                           select c).ToList();
+            //pagination
+            const int pageSize = 6;
+            if (page < 1) page = 1;
+
+            int count = contents.Count();
+            var pager = new Pager(count, page, pageSize);
+            int skip = (page - 1) * pageSize;
+            var data = contents.Skip(skip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager; 
+
+            return View("SortingTitleAsc", data);
+        }
+
+        [HttpGet("contents/title-desc")]
+        public IActionResult SortingTitleDesc(int page = 1)
+        {
+             var contents = (from c in _db.Contents
+                           orderby c.Title descending
+                           select c).ToList();
+            
+            //pagination
+            const int pageSize = 6;
+            if (page < 1) page = 1;
+
+            int count = contents.Count();
+            var pager = new Pager(count, page, pageSize);
+            int skip = (page - 1) * pageSize;
+            var data = contents.Skip(skip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager; 
+
+            return View("SortingTitleDesc", data);
+        }
     }
 }
