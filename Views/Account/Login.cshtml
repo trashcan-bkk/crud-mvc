@@ -1,0 +1,16 @@
+@model crud_mvc.Models.Account
+
+<body class="text-center">
+    <div class="py-5 text-center">
+        <h2>Login</h2>
+    </div>
+    <main class="form-signin">
+        <form asp-action="LoginAction" asp-controller="Account">
+           
+            <input asp-for="@Model.Username" type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            <input asp-for="@Model.Password" type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        </form>
+    </main>
+
+</body>

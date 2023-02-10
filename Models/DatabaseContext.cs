@@ -18,6 +18,7 @@ namespace crud_mvc.Models
         }
         public DbSet<Content> Contents { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Account> Accouunts { get; set; }
     }
 
     

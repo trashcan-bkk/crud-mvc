@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dRhdvgB58C2/mnxMDUrFq1xSa/Lg+KPnYcfYk9PffkiL+5i3m+AZ1G1tFHwogdM45Zyw/M96DIuAXs2vAvffxA==",
+  "dgSpecHash": "UxrviTw0dWCkScSld5cGtF5kgGTeCgoBg6nA4iCQiPim9UOTB0kg/8xqMOGts+yMrxJr2g8WzhXFmePo/1hXwQ==",
   "success": true,
   "projectFilePath": "/Users/panitarn/Projects/crud-mvc/crud-mvc.csproj",
   "expectedPackageFiles": [
+    "/Users/panitarn/.nuget/packages/bcrypt.net-core/1.6.0/bcrypt.net-core.1.6.0.nupkg.sha512",
     "/Users/panitarn/.nuget/packages/microsoft.data.sqlite.core/5.0.0/microsoft.data.sqlite.core.5.0.0.nupkg.sha512",
     "/Users/panitarn/.nuget/packages/microsoft.dotnet.platformabstractions/3.1.6/microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
     "/Users/panitarn/.nuget/packages/microsoft.entityframeworkcore/5.0.0/microsoft.entityframeworkcore.5.0.0.nupkg.sha512",

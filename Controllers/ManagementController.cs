@@ -19,8 +19,21 @@ namespace crud_mvc.Controllers
         [HttpGet("/management")]
         public IActionResult Index()
         {
-            var contents = _db.Contents.ToList();
-            return View(contents);
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                var contents = _db.Contents.ToList();
+                return View(contents);
+                
+                //var info = (from c in db.Accounts
+                        //where c.Username == HttpContext.Session.GetString("username")
+                        //select c).ToList();
+
+                //return View(info);
+            }
         }
 
         [HttpGet]
@@ -114,6 +127,5 @@ namespace crud_mvc.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

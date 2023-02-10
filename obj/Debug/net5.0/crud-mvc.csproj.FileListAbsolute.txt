@@ -70,3 +70,5 @@
 /Users/panitarn/Projects/crud-mvc/obj/Debug/net5.0/Razor/Views/Content/SortingOldest.cshtml.g.cs
 /Users/panitarn/Projects/crud-mvc/obj/Debug/net5.0/Razor/Views/Content/SortingTitleAsc.cshtml.g.cs
 /Users/panitarn/Projects/crud-mvc/obj/Debug/net5.0/Razor/Views/Content/SortingTitleDesc.cshtml.g.cs
+/Users/panitarn/Projects/crud-mvc/obj/Debug/net5.0/Razor/Views/Account/Login.cshtml.g.cs
+/Users/panitarn/Projects/crud-mvc/bin/Debug/net5.0/BCrypt.Net-Core.dll

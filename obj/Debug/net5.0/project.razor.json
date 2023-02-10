@@ -15684,6 +15684,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Account/Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/panitarn/Projects/crud-mvc/Views/Content/GetContent.cshtml",
       "TargetPath": "Views\\Content\\GetContent.cshtml",
       "FileKind": "mvc"
