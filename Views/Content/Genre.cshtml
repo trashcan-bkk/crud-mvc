@@ -15,12 +15,13 @@
         <form method="GET" asp-controller="Content" asp-action="Search">
             <div class="input-group mb-3">
                 <input type="search" class="form-control" placeholder="Title or author..." 
-                    aria-describedby="basic-addon2" value="@ViewData["SeachContent"]" name="text">
+                    aria-describedby="basic-addon2" value="@ViewData["SearchContent"]" name="text">
                 <div class="input-group-append">
                     <input class="btn btn-outline-secondary" type="submit" value="Search"></input>
                 </div>
             </div>
         </form>
+
 
         <form method="GET" asp-controller="Content">
             <input asp-controller="Content" asp-action="SortingOldest" class="btn btn-outline-secondary" type="submit" value="Oldest"></input>
@@ -30,6 +31,7 @@
         </form>
 
         <br>
+
 
         <div class="row">
             @foreach (var item in Model)
@@ -41,8 +43,6 @@
                             <a href="contents/@Html.DisplayFor(modelItem => item.Id)"
                             class="card-text"><b>@item.Title</b></a>
                             <p>@item.Author</p>
-                            <a href="contents/genre?genre=@Html.DisplayFor(modelItem => item.Genre)">@item.Genre</a>
-
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -67,30 +67,27 @@
             @if (pager.CurrentPage > 1)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Content" asp-action="Index" asp-route-page="1">First</a>
+                    <a class="page-link" asp-controller="Content" asp-action="Search" asp-route-page="1">First</a>
                 </li>
                 <li>
-                    <a class="page-link" asp-controller="Content" asp-action="Index"
-                asp-route-page="@(pager.CurrentPage - 1)">Previous</a>
+                    <a class="page-link" asp-controller="Content" asp-action="Search" asp-route-page="@(pager.CurrentPage - 1)">Previous</a>
                 </li>
             }
 
             @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
             {
                 <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
-                    <a class="page-link" asp-controller="Content" asp-action="Index" asp-route-page="@pge"> @pge </a>
+                    <a class="page-link" asp-controller="Content" asp-action="Search" asp-route-page="@pge"> @pge </a>
                 </li>
             }
 
             @if (pager.CurrentPage < pager.TotalPages)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Content" asp-action="Index"
-                asp-route-page="@(pager.CurrentPage + 1)">Next</a>
+                    <a class="page-link" asp-controller="Content" asp-action="Search" asp-route-page="@(pager.CurrentPage + 1)">Next</a>
                 </li>
                 <li>
-                    <a class="page-link" asp-controller="Content" asp-action="Index"
-                asp-route-page="@(pager.TotalPages)">Last</a>
+                    <a class="page-link" asp-controller="Content" asp-action="Search" asp-route-page="@(pager.TotalPages)">Last</a>
                 </li>
             }
         </ul>

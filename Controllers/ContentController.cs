@@ -145,5 +145,31 @@ namespace crud_mvc.Controllers
 
             return View("SortingTitleDesc", data);
         }
+
+        [HttpGet("contents/genre")]
+        public IActionResult Genre(string genre, int page = 1)
+        {
+            ViewData["SearchContent"] = genre;
+            //use query from text 
+            var query = from x in _db.Contents select x;
+            if (!string.IsNullOrEmpty(genre))
+            {
+                query = query.Where(x => x.Genre.Contains(genre));
+            }
+
+            //pagination
+            const int pageSize = 6;
+            if (page < 1) page = 1;
+
+            int count = query.Count();
+            var pager = new Pager(count, page, pageSize);
+            int skip = (page - 1) * pageSize;
+            var data = query.Skip(skip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager; 
+            return View(data);
+        }
+
+
     }
 }
